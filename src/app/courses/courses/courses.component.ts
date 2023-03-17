@@ -1,10 +1,20 @@
-import { Component } from '@angular/core';
+import { Course } from './../model/courses';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-courses',
   templateUrl: './courses.component.html',
   styleUrls: ['./courses.component.scss']
 })
-export class CoursesComponent {
+export class CoursesComponent{
+
+  courses: Course[] = [{
+    _id: '1', name: 'Angular', category: 'front-end'
+  }];
+  displayedColumns = ['name','category'];
+
+  //constructor(){
+   // this.courses = [];
+  //}
 
 }
