@@ -1,7 +1,10 @@
-<mat-card>
-  <mat-card-content>
-
-    <mat-toolbar color="accent">Cursos Disponíveis</mat-toolbar>
+<mat-card >
+<mat-card-content>
+  <mat-toolbar color="accent"><span class="title">Cursos Disponíveis</span>
+   <button class="add" (click)="onAdd()" mat-mini-fab aria-label="Adcionar um curso">
+    <mat-icon style="font-size: 25px;">add</mat-icon>
+  </button>
+  </mat-toolbar>
 
     <div *ngIf="courses$ | async as courses; else loading">
       <table mat-table [dataSource]="courses" class="mat-elevation-z8">
@@ -20,12 +23,17 @@
           </td>
         </ng-container>
 
-          <!-- Icones Column -->
-          <ng-container matColumnDef="icon">
-            <th mat-header-cell *matHeaderCellDef>Ações</th>
-            <td mat-cell *matCellDef="let course"> {{ course.icon }}
-              <mat-icon aria-hidden="false" aria-label="Categoria do curso">{{course.category | category}}</mat-icon>
-            </td>
+          <!-- actions Column -->
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef> Ações </th>
+           <mat-cell *matCellDef="let course">
+           <button mat-icon-button color="accent" aria-label="Editar Curso">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" aria-label="Remover Curso">
+              <mat-icon>delete</mat-icon>
+            </button>
+           </mat-cell>
           </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
