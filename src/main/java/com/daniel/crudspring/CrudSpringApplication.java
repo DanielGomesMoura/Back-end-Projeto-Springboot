@@ -15,7 +15,7 @@ public class CrudSpringApplication {
 		SpringApplication.run(CrudSpringApplication.class, args);
 	}
 
-	@Bean
+	/*@Bean
 	CommandLineRunner initDataBase(CourseRepository courseRepository){
 		return args -> {
 			courseRepository.deleteAll();
@@ -25,5 +25,5 @@ public class CrudSpringApplication {
 			c.setCategory("Front-End");
 			courseRepository.save(c);
 		};
-	}
+	}*/
 }
